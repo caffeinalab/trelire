@@ -31,22 +31,54 @@ if (isset($_POST['to'])) {
     $headers = [];
     $headers[] = 'Content-type: '.$content_type;
     $headers[] = 'From: '.$from;
+    if ($message == '') {
+        add_action(
+            'admin_notices',
+            function () {
+                ?>
+                <div class="notice notice-error is-dismissible">
+                    <p>Please write a message.</p>
+                </div>
+        
+                <?php
+            }
+        );
+    }
     if ($reply_to!= '')
         $headers[] = 'Reply-to: '.$reply_to;
     foreach ($cc as $cc_addr)
         $headers[] = 'cc: '.$cc_addr;
     foreach ($bcc as $bcc_addr)
         $headers[] = 'bcc: '.$bcc_addr;
-
-    wp_mail($to, $subject, $message, $headers, $attachments);
-    add_action('admin_notices', function () {
-        ?>
-        <div class="notice notice-success is-dismissible">
-            <p>Email inviata correttamente.</p>
-        </div>
-
-        <?php
-    });
+    add_action(
+        'wp_loaded',
+        function () use ($to, $subject, $message, $headers, $attachments) {
+            if (wp_mail($to, $subject, $message, $headers, $attachments))
+                add_action(
+                    'admin_notices',
+                    function () {
+                        ?>
+                        <div class="notice notice-success is-dismissible">
+                            <p>Email sent correctly.</p>
+                        </div>
+                
+                        <?php
+                    }
+                );
+            else
+                add_action(
+                    'admin_notices',
+                    function () {
+                        ?>
+                        <div class="notice notice-error is-dismissible">
+                            <p>Email not sent!</p>
+                        </div>
+                
+                        <?php
+                    }
+                );
+        }
+    );
 }
 
 function render_emailer_page()
