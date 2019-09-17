@@ -21,7 +21,12 @@ if (isset($_POST['to'])) {
     $bcc = explode(',', $_POST['bcc']);
     $subject = $_POST['subject'];
     $message = $_POST['mail_content'];
-    $attachments = (!empty($_POST['attachments'])) ? explode(',', $_POST['attachments']) : array();
+    $attachments = [];
+    $inserted_attachments = (!empty($_POST['attachment'])) ? explode(',', $_POST['attachment']) : '';
+
+    foreach ($inserted_attachments as $inserted_attachment) {
+        $attachments[] = get_attached_file(intval($inserted_attachment));
+    }
     $headers = [];
     $headers[] = 'Content-type: '.$content_type;
     $headers[] = 'From: '.$from;
@@ -45,6 +50,16 @@ if (isset($_POST['to'])) {
 
 function render_emailer_page()
 {
+    function my_enqueue_media_lib_uploader() {
+
+        //Core media script
+        wp_enqueue_media();
+    
+        // Your custom js file
+        wp_register_script( 'media-lib-uploader-js', plugins_url( 'media-lib-uploader.js' , __FILE__ ), array('jquery') );
+        wp_enqueue_script( 'media-lib-uploader-js' );
+    }
+    add_action('admin_enqueue_scripts', 'my_enqueue_media_lib_uploader');
     include __DIR__.'/Templates/sending_page.php';
 }
 
