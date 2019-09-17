@@ -52,7 +52,7 @@ TreLire adds a page to the WordPress' tools, and makes you able to send emails f
 <!-- GETTING STARTED -->
 ## Getting Started
 
-You can just clone this repository inside your `wp-content/plugins` folder, or [download the installable zip](https://github.com/caffeinalab/trelire/zipball/master) and install it via the WordPress dashboard. 
+You can just clone this repository inside your `wp-content/plugins` folder, or [download the installable zip](https://github.com/caffeinalab/trelire/releases/latest/download/trelire.zip) and install it via the WordPress dashboard. 
 
 ### Updates
 Right now, you have to manually update the plugin by checking this GitHub repo.
