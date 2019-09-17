@@ -23,9 +23,10 @@ if (isset($_POST['to'])) {
     $message = $_POST['mail_content'];
     $attachments = [];
     $inserted_attachments = (!empty($_POST['attachment'])) ? explode(',', $_POST['attachment']) : '';
-
-    foreach ($inserted_attachments as $inserted_attachment) {
-        $attachments[] = get_attached_file(intval($inserted_attachment));
+    if (is_array($inserted_attachments)) {
+        foreach ($inserted_attachments as $inserted_attachment) {
+            $attachments[] = get_attached_file(intval($inserted_attachment));
+        }
     }
     $headers = [];
     $headers[] = 'Content-type: '.$content_type;
@@ -60,6 +61,7 @@ function render_emailer_page()
         wp_enqueue_script( 'media-lib-uploader-js' );
     }
     add_action('admin_enqueue_scripts', 'my_enqueue_media_lib_uploader');
+    wp_enqueue_style('style-trelire', plugin_dir_url(__FILE__).'Templates/assets/style.css');
     include __DIR__.'/Templates/sending_page.php';
 }
 

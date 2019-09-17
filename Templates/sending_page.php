@@ -1,31 +1,51 @@
+
 <h1>TreLire</h1>
+<div class="testbox">
 <form method="post">
-<h3>Content-type</h3>
-<select name="content-type">
+<table width="100%">
+  <tr>
+<td>
+<select name="content-type" class="select-css">
     <option value="text/html">text/html</option>
     <option value="text/plain">text/plain</option>
 </select>
-<h3>TO:</h3>
-<h5>(separated by comma)</h5>
-<input type="text" name="to" required>
-<h3>FROM:</h3>
-<input type="text" name="from" required>
-<h3>REPLY TO:</h3>
-<input type="text" name="reply-to">
-<h3>CC:</h3>
-<h5>(separated by comma)</h5>
-<input type="text" name="cc">
-<h3>BCC:</h3>
-<h5>(separated by comma)</h5>
-<input type="text" name="bcc">
-<h3>Subject:</h3>
-<input type="text" name="subject"><br>
+</td>
+<td>
+<input type="text" name="to" class="Input-text" placeholder="To (separated by comma)" required>
+</td>
+</tr>
+<tr>
+<td>
+<input type="text" name="from" placeholder="From" required>
+</td>
+<td>
+<input type="text" name="reply-to" placeholder="Reply to">
+</td>
+</tr>
+<tr>
+  <td>
+<input type="text" name="cc" placeholder="CC (separated by comma)">
+</td>
+<td>
+<input type="text" name="bcc" placeholder="BCC (separated by comma)">
+</td>
+</tr>
+<tr>
+  <td>
+<input type="text" name="subject" placeholder="Subject"><br>
+</td>
+<td>
 <input id="attachment-ids" type="hidden" name="attachment" />
-<input id="upload-button" type="button" class="button" value="Select attachments" />
-<?php wp_editor('', 'mail_content');?>
-<input type="submit" value="Submit">
-</form>
+<input id="upload-button" type="button" class="treLireButtons" value="Select attachments" />
+</td>
+</tr>
+</table>
 
+
+<?php wp_editor('', 'mail_content');?>
+<input type="submit" value="Submit" class="treLireButton">
+</form>
+</div>
 <script>
 jQuery(document).ready(function($){
 
