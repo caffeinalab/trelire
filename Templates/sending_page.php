@@ -1,7 +1,28 @@
 
 <h1>TreLire</h1>
+<?php
+if (isset($_GET['success'])) {
+    if ($_GET['success']) {
+        ?>
+        <div class="notice notice-success is-dismissible">
+            <p>Email sent correctly.</p>
+        </div>
+
+        <?php
+    } else {
+      ?>
+      <div class="notice notice-error is-dismissible">
+          <p>Email not sent!</p>
+      </div>
+
+      <?php
+    }
+}
+?>
 <div class="testbox">
-<form method="post">
+<form method="post" action="<?php echo esc_url(admin_url('admin-post.php'));?>">
+<?php wp_nonce_field('trel_send_mail'); ?>
+<input type="hidden" name="action" value="trel_send" />
 <table width="100%">
   <tr>
 <td>
