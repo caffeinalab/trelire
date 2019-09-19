@@ -5,7 +5,7 @@
  * Version:     1.0.0
  * Author:      Simone Montali @ Caffeina
  * Author URI:  https://caffeina.com/
- * Plugin URI:  https://github.com/simmontali/trelire
+ * Plugin URI:  https://github.com/caffeinalab/trelire
  */
 
 
@@ -17,23 +17,23 @@ function trel_check_admin_post()
 {
     $retrieved_nonce = $_REQUEST['_wpnonce'];
     if (!wp_verify_nonce($retrieved_nonce, 'trel_send_mail')) die('Failed security check');
-    if (isset($_POST['to']) && isset($_POST['mail_content'])) {
-        $to = explode(',', $_POST['to']);
+    if (!empty(sanitize_text_field($_POST['to'])) && !empty(sanitize_text_field($_POST['mail_content']))) {
+        $to = explode(',', sanitize_text_field($_POST['to']));
         $to = trel_email_array_validator($to);
-        if (preg_match('/^(text\/plain|text\/html)$/', $_POST['content-type']))
-            $content_type = $_POST['content-type'];
+        if (preg_match('/^(text\/plain|text\/html)$/', sanitize_text_field($_POST['content-type'])))
+            $content_type = sanitize_text_field($_POST['content-type']);
         else
             $content_type = 'text/plain';
         $from = sanitize_email($_POST['from']);
-        $reply_to=sanitize_email($_POST['reply-to']);
-        $cc = explode(',', $_POST['cc']);
+        $reply_to = sanitize_email($_POST['reply-to']);
+        $cc = explode(',', sanitize_text_field($_POST['cc']));
         $cc = trel_email_array_validator($cc);
-        $bcc = explode(',', $_POST['bcc']);
+        $bcc = explode(',', sanitize_text_field($_POST['bcc']));
         $bcc = trel_email_array_validator($bcc);
         $subject = sanitize_text_field($_POST['subject']);
         $message = wp_kses_post($_POST['mail_content']);
         $attachments = [];
-        $inserted_attachments = (!empty($_POST['attachment'])) ? explode(',', $_POST['attachment']) : '';
+        $inserted_attachments = (!empty(sanitize_text_field($_POST['attachment']))) ? explode(',', sanitize_text_field($_POST['attachment'])) : '';
         if (is_array($inserted_attachments)) {
             foreach ($inserted_attachments as $inserted_attachment) {
                 $attachments[] = get_attached_file(intval($inserted_attachment));
