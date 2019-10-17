@@ -31,6 +31,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 ![Product Name Screen Shot][screenshot]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire?ref=badge_shield)
 
 
 **TreLire** is a wp_mail tester plugin. Want to be sure WordPress is able to send what it needs, when it needs it? You're a plugin away from that.
@@ -85,6 +86,9 @@ Distributed under the GPL License. See `LICENSE` for more information.
 <div>Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
 
 <!-- CONTACT -->
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire?ref=badge_large)
+
 ## Contact
 
 [Simone Montali](https://monta.li) - [@Caffeina](https://caffeina.com)
