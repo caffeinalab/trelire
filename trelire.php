@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TreLire
  * Description: Nobody needs an email client when you have a website!
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Caffeina
  * Author URI:  https://caffeina.com/
  * Plugin URI:  https://github.com/caffeinalab/trelire
