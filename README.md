@@ -11,8 +11,6 @@
   </p>
 </p>
 
-
-
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -24,14 +22,12 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
-
-
+- [Copyright and license](#copyright-and-license)
+- [Contributions](#contributions)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 ![Product Name Screen Shot][screenshot]
-
 
 **TreLire** is a wp_mail tester plugin. Want to be sure WordPress is able to send what it needs, when it needs it? You're a plugin away from that.
 
@@ -47,23 +43,20 @@ TreLire adds a page to the WordPress' tools, and makes you able to send emails f
 * Attachments, using WP's media uploader.
 * HTML body
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
 You can just clone this repository inside your `wp-content/plugins` folder, or [download the installable zip](https://github.com/caffeinalab/trelire/releases/latest/download/trelire.zip) and install it via the WordPress dashboard. 
 
 ### Updates
-Right now, you have to manually update the plugin by checking this GitHub repo.
 
+Right now, you have to manually update the plugin by checking this GitHub repo.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 To use TreLire, just install it to your WordPress website and click on the Tools menu. You can now send emails and test your WordPress website.
 Need to use SMTP instead of your provider's mail? Check [Postino](https://github.com/caffeinalab/postino)!
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -76,18 +69,21 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
-Distributed under the GPL License. See `LICENSE` for more information.
-<div>Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+## Copyright and license
 
-<!-- CONTACT -->
-## Contact
+Copyright 2014-2019 [Caffeina](http://caffeina.com) SpA under the [MIT license](LICENSE.md).
 
-[Simone Montali](https://monta.li) - [@Caffeina](https://caffeina.com)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcaffeinalab%2Ftrelire?ref=badge_small)
+
+<div>Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+<!-- CONTRIBUTIONS -->
+## Contributions
+
+[Simone Montali](https://monta.li) started the project during his time [@Caffeina](https://caffeina.com)
 
 Project Link: [https://github.com/caffeinalab/trelire](https://github.com/caffeinalab/trelire)
 
